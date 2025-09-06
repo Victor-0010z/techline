@@ -1,0 +1,520 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Reveal animação */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1, h2 {
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+    font-family: "Open Sans", sans-serif;
+}
+
+img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+img:hover, img:active {
+    transform: scale(1.05);
+}
+
+.banner {
+    position: relative;
+    display: inline-block;
+}
+
+.gear {
+    position: absolute;
+    bottom: 50px; /* coloca abaixo da imagem */
+}
+
+.gear1 {
+    left: 80%; /* ajuste horizontal */
+    animation: spin 6s linear infinite;
+}
+
+.gear2 {
+    left: 93%; /* ao lado da engrenagem 1 */
+    animation: spinReverse 6s linear infinite;
+}
+
+/* gira no sentido horário */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* gira no sentido anti-horário */
+@keyframes spinReverse {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+}
+
+.sem-underline{
+    text-decoration: none;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #002b45;
+    color: #fff;
+    padding: 10px 20px 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.logo img {
+    height: 80px;
+}
+
+.menu-btn {
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Menu horizontal (desktop) */
+.nav-desktop {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0 auto;
+}
+
+.nav-desktop li a {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-desktop li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* ajusta a distância da linha */
+    width: 0;
+    height: 2px;
+    background: #00c3ff; /* cor da linha */
+    transition: width 0.3s ease;
+}
+
+/* Ao passar o mouse, a linha cresce */
+.nav-desktop li a:hover::after {
+    width: 100%;
+}
+
+/* Menu lateral */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -20%;
+    width: 20%;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    padding: 20px;
+    z-index: 999;
+}
+
+.side-menu ul {
+    list-style: none;
+    margin-top: 110px;
+}
+
+.side-menu li {
+    margin: 15px 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.side-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+}
+
+/* Quando ativado */
+.side-menu.active {
+    right: 0;
+}
+
+/* Sections */
+main {
+    padding-top: 80px;
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+    scroll-margin-top: 100px;
+}
+
+section:nth-child(even) {
+    background: #f1f1f1;
+}
+
+#inicio {
+    display: flex;
+    align-items: center; /* centraliza verticalmente */
+    justify-content: space-between; /* separa texto e imagem */
+    padding: 80px 60px;
+    text-align: left;
+    font-size: 27px;
+    background-color: #011725;
+    color: #fff;
+}
+
+#inicio .inicio-texto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#inicio h1 {
+    flex: 1; /* ocupa metade do espaço */
+    padding-right: 20px; /* distância entre texto e imagem */
+    margin-bottom: 10px;
+
+}
+
+#inicio .imagem-cabecario {
+    flex: 1; /* ocupa metade do espaço */
+    max-width: 100%;
+    height: 450px;
+    object-fit: contain;
+    text-align: right;
+    border-radius: 34px;
+}
+
+.typing-text {
+    font-size: 1.5rem; /* ajuste conforme layout */
+    font-weight: bold;
+    color: #f7b32b; /* amarelo igual ao destaque da imagem */
+    text-align: left;
+    flex: 1;
+    display: inline-block;
+    min-height: 1.5em;
+    line-height: 1.5em;
+    font-size: 22px;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+.typed-cursor {
+    font-size: 1.5rem;
+    color: #f7b32b;
+    position: relative;
+    left: 2px;
+}
+
+.typed-text, .typed-cursor {
+    display: inline;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+#quem-somos{
+    background-color: #032c5c;
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* Alinha os filhos em coluna */
+    align-items: center;  
+    justify-content: center; 
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+#quem-somos h2{
+    text-align: center;   /* centraliza o título */
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+}
+
+#quem-somos p{
+    font-size: 20px;
+}
+
+#quem-somos .conteudo-quem-somos {
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px; /* para limitar a largura se quiser */
+}
+
+#quem-somos .texto-quem-somos {
+    flex: 1;
+}
+
+#quem-somos .imagem-equipe{
+    flex: 1; /* ocupa metade do espaço */
+    max-width: 100%;
+    height: 550px;
+    object-fit: contain;
+}
+
+#servicos {
+    background-color: #011725;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#servicos h2 {
+    color:#0a72b3 ;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+#servicos p {
+    margin-bottom: 40px;
+}
+
+.servicos-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servico-item img {
+    width: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.servico-item h3 {
+    color: rgb(10, 101, 187);
+    margin-bottom: 10px;
+}
+
+.servico-item p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+footer {
+    background: #02284e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.whatsapp-fixo {
+    position: fixed;
+    width: 65px;
+    height: 65px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-fixo i {
+    font-size: 35px;
+    color: white;
+}
+
+.whatsapp-fixo:hover {
+    transform: scale(1.15);
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .side-menu {
+        width: 70%; /* ocupa uns 70% da tela (pode ajustar pra 60%, 75% etc) */
+        max-width: 280px; /* garante que não fique muito largo em celulares grandes */
+        height: 100%;
+        top: 0;
+        right: -100%; /* escondido fora da tela */
+        background: #002b45;
+        padding: 20px;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+    }
+
+    .side-menu ul {
+        margin-top: 100px;
+    }
+
+    .side-menu li {
+        margin: 15px 0;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .side-menu li a {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ececec;
+        display: block;
+    }
+
+    /* imagem e texto cabecario */
+    .side-menu.active {
+        right: 0;
+    }
+
+    #inicio {
+        flex-direction: column;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    #inicio h1, #inicio .imagem-cabecario {
+        flex: unset;
+        padding: 0;
+        margin-bottom: 20px;
+        height: auto;
+    }
+
+    .gear2{
+        left: 75%;
+    }
+
+    .gear1 svg {
+        width: 50px;   /* engrenagem menor */
+        height: 50px;  /* reposiciona no mobile */
+    }
+
+    .gear2 svg {
+        width: 30px;   /* engrenagem menor */
+        height: 30px;
+        bottom: 8px;   /* alinhamento */
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-btn,
+    .side-menu {
+        display: none;
+    }
+
+    header {
+        justify-content: flex-start;
+        padding: 10px 40px;
+    }
+
+    .logo {
+        margin-right: 60px;
+    }
+
+    .nav-desktop {
+        flex: 1;
+        justify-content: center; /* centraliza o menu */
+    }
+}
+
+/* Mobile - some o menu desktop */
+@media (max-width: 768px) {
+    header {
+        align-items: center;
+    }
+
+    .nav-desktop {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+
+    #quem-somos .imagem-equipe {
+        width: 80%;      /* imagem menor que a tela, centralizada */
+        max-width: 400px; /* opcional: limite máximo de largura */
+        height: auto; /* mantém proporção */
+    }
+
+    #quem-somos .conteudo-quem-somos {
+        flex-direction: column; /* empilha texto e imagem */
+        align-items: center;    /* centraliza horizontalmente */
+        gap: 20px;              /* mantém espaçamento */
+    }
+
+    #quem-somos .texto-quem-somos,
+    #quem-somos .imagem-equipe {
+        flex: unset;            /* remove o flex 1 */
+        width: 100%;            /* ocupa toda a largura disponível */
+    }
+
+    #quem-somos .imagem-equipe {
+        flex: unset;       /* remove o flex original */
+        width: 70%;        /* diminui a largura da imagem */
+        max-width: 300px;  /* limita a largura máxima */
+        height: auto;
+    }
+
+    #quem-somos h2 {
+        font-size: 1.8rem;      /* ajusta o tamanho do título */
+    }
+
+    #quem-somos p {
+        font-size: 1rem;        /* ajusta o texto para leitura no celular */
+    }
+}
+
+@media (max-width: 768px) {
+    .servicos-container {
+        grid-template-columns: 1fr; /* empilha os serviços */
+        gap: 30px;
+    }
+
+    .servico-item img {
+        width: 260px;
+    }
+}
