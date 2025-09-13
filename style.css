@@ -54,12 +54,12 @@ img:hover, img:active {
 }
 
 .gear1 {
-    left: 80%; /* ajuste horizontal */
+    left: 61%; /* ajuste horizontal */
     animation: spin 6s linear infinite;
 }
 
 .gear2 {
-    left: 93%; /* ao lado da engrenagem 1 */
+    left: 80%; /* ao lado da engrenagem 1 */
     animation: spinReverse 6s linear infinite;
 }
 
@@ -228,7 +228,8 @@ section:nth-child(even) {
 .typing-text {
     font-size: 1.5rem; /* ajuste conforme layout */
     font-weight: bold;
-    color: #f7b32b; /* amarelo igual ao destaque da imagem */
+    color: #1a2268; /* amarelo igual ao destaque da imagem */
+    background-color: #f1f1f1;
     text-align: left;
     flex: 1;
     display: inline-block;
@@ -240,7 +241,7 @@ section:nth-child(even) {
 }
 .typed-cursor {
     font-size: 1.5rem;
-    color: #f7b32b;
+    color: #f5f5f6;
     position: relative;
     left: 2px;
 }
@@ -252,7 +253,7 @@ section:nth-child(even) {
 }
 
 #quem-somos{
-    background-color: #032c5c;
+    background-color: #002b45;
     color: #fff;
     display: flex;
     flex-direction: column; /* Alinha os filhos em coluna */
@@ -270,27 +271,53 @@ section:nth-child(even) {
     font-size: 30px;
 }
 
-#quem-somos p{
-    font-size: 20px;
+/* Título */
+#quem-somos h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #00a0ff;
 }
 
-#quem-somos .conteudo-quem-somos {
-    display: flex;  
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    max-width: 1200px; /* para limitar a largura se quiser */
+/* Cada bloco ocupa a tela inteira */
+#quem-somos .bloco {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px;
+}
+
+/* Inverte a ordem do bloco */
+#quem-somos .bloco.invertido {
+  flex-direction: row-reverse;
 }
 
 #quem-somos .texto-quem-somos {
-    flex: 1;
+  flex: 1;
 }
 
-#quem-somos .imagem-equipe{
-    flex: 1; /* ocupa metade do espaço */
-    max-width: 100%;
-    height: 550px;
-    object-fit: contain;
+#quem-somos .texto-quem-somos p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #f1f1f1;
+}
+
+/* Imagens */
+#quem-somos .imagem-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#quem-somos .imagem-equipe {
+  
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  height: 150px;
 }
 
 #servicos {
@@ -421,7 +448,7 @@ footer {
     }
 
     .gear2{
-        left: 75%;
+        left: 78%;
     }
 
     .gear1 svg {
@@ -430,9 +457,23 @@ footer {
     }
 
     .gear2 svg {
-        width: 30px;   /* engrenagem menor */
-        height: 30px;
+        width: 35px;   /* engrenagem menor */
+        height: 35px;
         bottom: 8px;   /* alinhamento */
+    }
+    #quem-somos .bloco,
+    #quem-somos .bloco.invertido {
+        flex-direction: column;
+        height: auto; /* em celular não força 100vh */
+        text-align: center;
+    }
+
+    #quem-somos .imagem-wrapper {
+        margin-top: 20px;
+    }
+
+    #quem-somos .texto-quem-somos p {
+        font-size: 16px;
     }
 }
 
